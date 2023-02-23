@@ -1,0 +1,118 @@
+{
+	"products": [
+		{
+			"label": "VPC Solution",
+			"name": "vpc-solution",
+			"version": "0.0.10",
+			"module_info": null,
+			"flavors": [
+				{
+					"label": "Standard",
+					"name": "standard",
+					"usage": "module vpc {\n  # Replace \"master\" with a GIT release version to lock into a specific release\n  source                      = \"git::https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc.git?ref=master\"\n  resource_group_id           = var.resource_group_id\n  region                      = var.region\n  prefix                      = var.prefix\n  tags                        = var.tags\n  vpc_name                    = var.vpc_name\n  classic_access              = var.classic_access\n  network_acls                = var.network_acls\n  use_public_gateways         = var.use_public_gateways\n  subnets                     = var.subnets\n  vpn_gateways                = var.vpn_gateways\n}\n\n---",
+					"usage_template": "",
+					"compliance": {
+						"controls": [
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "AC-2(a)"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "AC-2(d)"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "AC-3"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "AC-6-0"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "AU-2(a)"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "CM-7(b)"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "IA-3"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "IA-4(d)"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "RA-5(a)"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "SC-12-0"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "SC-13"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "SC-7(10)"
+							},
+							{
+								"profile_name": "IBM Cloud for Financial Services v0.5.0",
+								"control_id": "SC-8-0"
+							}
+						]
+					},
+					"iam_permissions": [
+						{
+							"service_name": "iam-identity",
+							"role_crns": [
+								"crn:v1:bluemix:public:iam::::role:Administrator"
+							]
+						},
+						{
+							"service_name": "is.vpc",
+							"role_crns": [
+								"crn:v1:bluemix:public:iam::::serviceRole:Manager",
+								"crn:v1:bluemix:public:iam::::role:Administrator"
+							]
+						}
+					],
+					"architecture": {
+						"descriptions": "",
+						"features": [
+							{
+								"title": "Multi Zone",
+								"description": "VPC spanning 3 availability zones"
+							},
+							{
+								"title": "VSIs",
+								"description": "One or more VSIs per availability zone"
+							},
+							{
+								"title": "Public Gateway",
+								"description": "Optional public gateway"
+							}
+						],
+						"diagrams": [
+							{
+								"diagram": {
+									"url": "https://raw.githubusercontent.com/gmendel/landing-zone-vpc/main/.docs/vpc-standard.svg",
+									"caption": "Standard Landing Zone VPC",
+									"type": "image/svg+xml"
+								},
+								"description": "The **Standard** variation of the VPC Solution provides a large configuration for a secure VPC for the cloud."
+							}
+						]
+					},
+					"dependencies": null,
+					"release_notes_url": ""
+				}
+			]
+		}
+	]
+}
